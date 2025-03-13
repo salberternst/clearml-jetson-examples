@@ -6,8 +6,9 @@ task.add_requirements('torch', '1.10.0')
 task.add_requirements('torchaudio', '0.10.0+d2634d8')
 task.add_requirements('torchvision', '0.11.0a0+fa347eb')
 task.add_requirements('numpy', '1.19.5')
-task.add_requirements('Pillow', '9.0.1')
+task.add_requirements('Pillow', '8.4.0')
 
+task.set_repo(repo="https://github.com/salberternst/clearml-jetson-examples.git", branch='main')
 task.set_base_docker(docker_image='nvcr.io/nvidia/l4t-pytorch:r32.7.1-pth1.10-py3')
 task.execute_remotely(
     queue_name='jetson-nano',
@@ -51,4 +52,3 @@ for epoch in range(epochs):
         optimizer.zero_grad()
         loss.backward()
         optimizer.step()
-    print(f'Epoch [{epoch+1}/{epochs}], Loss: {loss.item():.4f}')
